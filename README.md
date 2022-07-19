@@ -1,4 +1,9 @@
-Api demo with Flask
+# Api demo with Flask
+
+Requisitos:
+* Python 3.7
+* Dependencias en requirements.txt
+
 
 Dependencias:
 ```
@@ -19,3 +24,12 @@ Probando:
 curl localhost:8080/todos/
 curl localhost:8080/todos/todo3
 ```
+
+Usando Docker:
+```
+./docker-build.sh
+./docker-build.sh v3 # opcional
+```
+
+Levantando con Docker Compose:
+docker-compose up
