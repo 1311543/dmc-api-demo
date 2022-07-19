@@ -6,7 +6,7 @@ pipeline {
   }
 
   parameters {
-    string(name: 'dockerhub-credential', defaultValue: 'dockerhub-token', description: '')
+    string(name: 'dockerhub_credential', defaultValue: 'dockerhub-token', description: '')
     string(name: 'SLACK_CHANNEL', defaultValue: '#deploys', description: '')
     //choice(name: 'TYPE', choices: 'aut\ncron\ndata', description: 'Autoscaling, Cron or Data')
     booleanParam(name: 'UPLOAD', defaultValue: false, description: 'Upload to docker hub')
@@ -67,7 +67,7 @@ pipeline {
         }
       }
       steps {
-        withCredentials([usernamePassword(credentialsId: "${params.dockerhub-credential}", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+        withCredentials([usernamePassword(credentialsId: "${params.dockerhub_credential}", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
             sh "echo $PASSWORD | docker login -u $USER"
             sh "docker push mario21ic/dmc-api:${env.BUILD_NUMBER}"
         }
