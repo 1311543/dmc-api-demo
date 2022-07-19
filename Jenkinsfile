@@ -66,7 +66,9 @@ pipeline {
         }
       }
       steps {
-        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: "${params.aws_credentials}", accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+        withCredentials([usernamePassword(credentialsId: 'dockerhub-token', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+            sh "echo $PASSWORD | docker login -u $USER"
+            sh "docker push mario21ic/dmc-api:${env.BUILD_NUMBER}"
         }
         /*
         build job: "another_job", parameters: [
