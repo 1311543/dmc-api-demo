@@ -9,6 +9,7 @@ pipeline {
     string(name: 'dockerhub_credential', defaultValue: 'dockerhub-token', description: '')
     string(name: 'SLACK_CHANNEL', defaultValue: '#deploys', description: '')
     //choice(name: 'TYPE', choices: 'aut\ncron\ndata', description: 'Autoscaling, Cron or Data')
+    //choice(name: 'REGION', choices: ['us-east-1', 'us-west-2'])
     booleanParam(name: 'UPLOAD', defaultValue: false, description: 'Upload to docker hub')
   }
 
