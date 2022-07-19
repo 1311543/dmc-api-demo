@@ -68,7 +68,7 @@ pipeline {
       }
       steps {
         withCredentials([usernamePassword(credentialsId: "${params.dockerhub_credential}", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-            sh "echo $PASSWORD | docker login -u $USERNAME"
+            sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"
             sh "docker push mario21ic/dmc-api:${env.BUILD_NUMBER}"
         }
         /*
