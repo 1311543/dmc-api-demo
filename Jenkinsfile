@@ -17,7 +17,10 @@ pipeline {
 
     stage ("Test") {
       steps {
-        echo "ejecucion de tests"
+        parallel (
+          syntax: { echo "pruebas de sintaxis" },
+          linter: { echo "flake8" }
+        )
       }
     }
 
