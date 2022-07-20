@@ -22,3 +22,14 @@ Probando:
 curl localhost:8080/todos/
 curl localhost:8080/todos/todo3
 ```
+
+Usando Docker:
+```
+./docker-build.sh
+./docker-build.sh v13 # opcional
+```
+
+Levantando con Docker Compose:
+```
+docker-compose up
+```
