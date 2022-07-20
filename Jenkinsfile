@@ -24,6 +24,7 @@ pipeline {
     stage ("Upload") {
       steps {
         echo "subir a docker hub"
+        sh "docker push mario21ic/dmc-api:${env.BUILD_NUMBER}"
       }
     }
 
