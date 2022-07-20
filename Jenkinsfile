@@ -1,6 +1,10 @@
 pipeline {
   agent any
 
+  parameters {
+    string(name: 'DOCKERHUB_CREDENTIAL', defaultValue: 'dockerhub-token', description: 'Acceso de escritura a docker hub')
+  }
+
   stages {
 
     stage ("Repo") {
@@ -27,7 +31,7 @@ pipeline {
     stage ("Upload") {
       steps {
         echo "subir a docker hub"
-        withCredentials([usernamePassword(credentialsId: "dockerhub-token", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+        withCredentials([usernamePassword(credentialsId: "${params.DOCKERHUB_CREDENTIAL}", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
           sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"
           sh "docker push mario21ic/dmc-api:${env.BUILD_NUMBER}"
           sh "docker logout"
