@@ -17,7 +17,7 @@ pipeline {
 
     stage ("Test") {
       steps {
-        sh "ejecucion de tests"
+        echo "ejecucion de tests"
       }
     }
 
