@@ -4,14 +4,12 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                ghoa = ${env.BUILD_NUMBER}
                 sh 'echo $BUILD_URL'
                 sh 'echo $JOB_NAME'
                 sh 'echo $BUILD_NUMBER'
                 sh 'echo $BUILD_URL'
                 sh 'echo $WORKSPACE'
                 sh 'echo $WORKSPACE'
-                sh 'echo $ghoa'
 
             }
         }
