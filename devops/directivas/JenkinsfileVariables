@@ -4,11 +4,12 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'echo $BUILD_URL}'
-                sh 'echo $JOB_NAME}'
-                sh 'echo $BUILD_NUMBER}'
-                sh 'echo $BUILD_URL}'
-                sh 'echo $WORKSPACE}'
+                sh 'echo $BUILD_URL'
+                sh 'echo $JOB_NAME'
+                sh 'echo $BUILD_NUMBER'
+                sh 'echo $BUILD_URL'
+                sh 'echo $WORKSPACE'
+                sh 'ls -l -R $WORKSPACE'
             }
         }
     }
