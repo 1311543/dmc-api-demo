@@ -10,7 +10,6 @@ pipeline {
                 sh 'echo $BUILD_URL'
                 sh 'echo $WORKSPACE'
                 sh 'echo $WORKSPACE'
-
             }
         }
     }

@@ -13,7 +13,6 @@ pipeline {
             }
             steps {
                 echo "DEPLOYING Toggle: ${params.TOGGLE}"
-
             }
         }
     }

@@ -23,7 +23,7 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-                sh 'aws cloudformation create-stack  --stack-name mystack-dmc-prueba ' +
+                sh 'aws cloudformation create-stack  --stack-name mystack-dmc-prueba10 ' +
                         '--template-body file://cloudformation/WebServerSecurityGroup'
 //                        '\\\n' +
 //                        '  --parameters ParameterKey=Parm1,ParameterValue=test1 ParameterKey=Parm2,ParameterValue=test2'
